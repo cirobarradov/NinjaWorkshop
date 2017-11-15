@@ -1,0 +1,63 @@
+{
+    "groups": [
+        {
+            "apps": [
+                {
+				  "id": "/ninja-scheduler/subgroup1/redis",
+				  "cmd": null,
+				  "cpus": 1,
+				  "mem": 128,
+				  "disk": 0,
+				  "instances": 1,
+				  "container": {
+				    "docker": {
+				      "image": "redis",
+				      "network": "HOST",
+				      "forcePullImage": true
+				    },
+				    "type": "DOCKER"
+				  }
+				},
+				{
+			      "id": "/ninja-scheduler/subgroup1/minimalscheduler",
+			      "dependencies": ["/ninja-scheduler/subgroup1/redis"],
+				  "cmd": null,
+				  "cpus": 0.3,
+				  "mem": 100,
+				  "disk": 0,
+				  "instances": 1,
+				  "container": {
+				    "docker": {
+				      "image": "cirobarradov/minimalscheduler",
+				      "network": "HOST",
+				      "forcePullImage": true
+				    },
+				    "type": "DOCKER",
+				    "volumes": []
+				  },
+				  "portDefinitions": [
+				    {
+				      "port": 0,
+				      "protocol": "tcp",
+				      "name": null,
+				      "labels": null
+				    }
+				  ],
+				  "env": {
+				    "master": "172.17.0.5",
+				    "redis_server": "localhost",
+				    "redis_key": "regression",
+				    "docker_task": "cirobarradov/executor-app",
+				    "task_cpu": "0.1",
+				    "task_mem": "30"
+				  },
+				  "labels": {},
+				  "healthChecks": []
+				}
+                
+            ],
+            "id": "/ninja-scheduler/subgroup1"
+        }
+    ],
+    "id": "/ninja-scheduler"
+}
