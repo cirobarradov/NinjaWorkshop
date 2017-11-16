@@ -19,4 +19,6 @@ $ export PATH=$PATH:$HOME/.minimesos/bin
 $ minimesos init
 $ minimesos up
 ```  
-  
+  - Implement mesos scheduler sample with pymesos and install it into a docker container
+  - Create an automated build Docker Registry with the sample scheduler containerized
+  - Deploy on marathon
