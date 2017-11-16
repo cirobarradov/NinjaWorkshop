@@ -4,6 +4,6 @@
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
 
-  - Type some Markdown on the left
+  - [Docker container with an example of a minimal scheduler implementation with python](https://github.com/cirobarradov/NinjaWorkshop/tree/master/MinimalScheduler)
   - See HTML in the right
   - Magic
