@@ -30,7 +30,7 @@ $ curl -X POST http://$MINIMESOS_MARATHON_IP:8080/v2/apps -d @minimal-scheduler.
 
   - Groups (Minimal Scheduler + Redis Server)
 ```sh
-$ vi [ninja-scheduler-group.json](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/ninja-scheduler-group.json)
+$ vi ninja-scheduler-group.json
 $ curl -X POST http://$MINIMESOS_MARATHON_IP:8080/v2/groups -d @ninja-scheduler-group.json -H  "Content-type: application/json"
 ```   
 
