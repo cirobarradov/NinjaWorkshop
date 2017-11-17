@@ -9,10 +9,10 @@ http://minimesos.readthedocs.io/en/latest/
 https://dcos.io/docs/1.9/deploying-services/marathon-api
 
 #### Data
-  * [Python Simple Server](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/python-server.json)  
-  * [Redis](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/redis-app.json)  
-  * [Minimal Scheduler](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/minimal-scheduler.json)  
-  * [Ninja Scheduler Group](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/ninja-scheduler-group.json)  
+  * [Python Simple Server](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/python-server.json): Python’s SimpleHTTPServer is the classic quick solution for serving the files in a directory via HTTP 
+  * [Redis Server](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/redis-app.json): open source key-value store that functions as a data structure server.
+  * [Minimal Scheduler](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/minimal-scheduler.json): Mesos Scheduler sample
+  * [Ninja Scheduler Group](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/ninja-scheduler-group.json): Group of apps with dependencies (minimal scheduler and redis server)
     
 #### Examples 
 
