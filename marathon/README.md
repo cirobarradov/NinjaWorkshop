@@ -8,14 +8,13 @@ http://minimesos.readthedocs.io/en/latest/
 
 https://dcos.io/docs/1.9/deploying-services/marathon-api
 
-  - Data
+#### Data
   * [Python Simple Server](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/python-server.json)  
   * [Redis](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/redis-app.json)  
   * [Minimal Scheduler](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/minimal-scheduler.json)  
   * [Ninja Scheduler Group](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/ninja-scheduler-group.json)  
     
-  - Examples
-  
+#### Examples 
 
 ### Create Tasks
 Create and start a new application. Note: This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
