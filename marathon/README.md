@@ -2,7 +2,7 @@
 
 ## Marathon UI
 
-Run the web user interface for Mesosphere's Marathon: [Marathon UI](https://raw.githubusercontent.com/mesosphere/marathon-ui/master/marathon-ui.png)
+Run the web user interface for Mesosphere's Marathon: [Marathon UI](https://github.com/mesosphere/marathon-ui/)
 [![N|Solid](https://raw.githubusercontent.com/mesosphere/marathon-ui/master/marathon-ui.png)](https://github.com/mesosphere/marathon-ui/)
 
 ## Marathon REST API
