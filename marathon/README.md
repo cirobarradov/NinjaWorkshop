@@ -1,8 +1,8 @@
 # Running apps and frameworks with Marathon
 
-minimesos
+## Marathon UI
 
-http://minimesos.readthedocs.io/en/latest/
+Run the web user interface for Mesosphere's Marathon: [Marathon UI](https://raw.githubusercontent.com/mesosphere/marathon-ui/master/marathon-ui.png)
 
 ## Marathon REST API
 
