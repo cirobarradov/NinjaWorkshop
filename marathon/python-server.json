@@ -1,5 +1,5 @@
 {
-  "id": "/pythonserver",
+  "id": "/python-server",
   "cmd": "python -m SimpleHTTPServer $PORT",
   "cpus": 1,
   "mem": 128,
