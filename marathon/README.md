@@ -4,9 +4,18 @@ minimesos
 
 http://minimesos.readthedocs.io/en/latest/
 
-marathon api 
+## Marathon REST API
 
 https://dcos.io/docs/1.9/deploying-services/marathon-api
+
+  - Data
+  *[Python Simple Server](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/python-server.json)  
+  *[Redis](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/redis-app.json)  
+  *[Minimal Scheduler](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/minimal-scheduler.json)  
+  *[Ninja Scheduler Group](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/ninja-scheduler-group.json)  
+    
+  - Examples
+  
 
 ### Create Tasks
 Create and start a new application. Note: This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
@@ -14,8 +23,8 @@ Create and start a new application. Note: This operation will create a deploymen
   - A simple task with marathon: built-in web server (SimpleHTTPServer)
 ```sh
 $ export MINIMESOS_MARATHON_IP=172.17.0.x
-$ vi pythonserver.json
-$ curl -X POST http://$MINIMESOS_MARATHON_IP:8080/v2/apps -d @pythonserver.json -H  "Content-type: application/json"
+$ vi python-server.json
+$ curl -X POST http://$MINIMESOS_MARATHON_IP:8080/v2/apps -d @python-server.json -H  "Content-type: application/json"
 ```
   - Redis Server
 ```sh
@@ -37,15 +46,15 @@ $ vi ninja-scheduler-group.json
 $ curl -X POST http://$MINIMESOS_MARATHON_IP:8080/v2/groups -d @ninja-scheduler-group.json -H  "Content-type: application/json"
 ```   
 
-### Get
+### Get Information
 Get the application with id app_id. The response includes some status information besides the current configuration of the app. You can specify optional embed arguments, to get more embedded information.
 
 ```sh
-$ curl -X GET http://$MINIMESOS_MARATHON_IP:8080/v2/apps -d @pythonserver.json -H  "Content-type: application/json"
+$ curl -X GET http://$MINIMESOS_MARATHON_IP:8080/v2/apps -d @python-server.json -H  "Content-type: application/json"
 ```   
 ### Destroy
 Destroy an application. All data about that application will be deleted. Note: This operation will create a deployment. The operation finishes, if the deployment succeeds. You can query the deployments endoint to see the status of the deployment.
 
 ```sh
-$ curl -X GET http://$MINIMESOS_MARATHON_IP:8080/v2/apps -d @pythonserver.json -H  "Content-type: application/json"
+$ curl -X GET http://$MINIMESOS_MARATHON_IP:8080/v2/apps -d @python-server.json -H  "Content-type: application/json"
 ```   
