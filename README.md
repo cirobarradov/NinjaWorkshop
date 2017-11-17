@@ -13,6 +13,7 @@ This is a workshop for ninja academy with an example of the mesos api implementa
 ## Steps
   - Install [Docker](https://docs.docker.com/engine/installation/)
   - Install and run [minimesos](http://minimesos.readthedocs.io/en/latest/) tool
+  
   [![N|Solid](https://pbs.twimg.com/profile_images/651035760968110080/WMuud6Bi.png)](http://minimesos.readthedocs.io/en/latest/)
   
 ```sh
