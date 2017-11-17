@@ -9,10 +9,10 @@ http://minimesos.readthedocs.io/en/latest/
 https://dcos.io/docs/1.9/deploying-services/marathon-api
 
   - Data
-  *[Python Simple Server](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/python-server.json)  
-  *[Redis](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/redis-app.json)  
-  *[Minimal Scheduler](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/minimal-scheduler.json)  
-  *[Ninja Scheduler Group](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/ninja-scheduler-group.json)  
+  * [Python Simple Server](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/python-server.json)  
+  * [Redis](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/redis-app.json)  
+  * [Minimal Scheduler](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/minimal-scheduler.json)  
+  * [Ninja Scheduler Group](https://github.com/cirobarradov/NinjaWorkshop/blob/master/marathon/ninja-scheduler-group.json)  
     
   - Examples
   
