@@ -93,15 +93,30 @@ class MinimalScheduler(Scheduler):
     #Invoked when the status of a task has changed(e.g., a slave is lost and so the task is lost, a task finishes and an
     #executor sends a status update saying so, etc).
     def statusUpdate(self, driver, update):
-        #check update.state
+    #check update.state
+    # logging.info(update)
+    if (update.state in TERMINAL_STATES):
+        if update.state == 'TASK_FAILED':
+            logging.debug('######\n Status update: Failed %s \n ######', update.message)
+        elif update.state == 'TASK_ERROR':
+            logging.debug('######\n Status update: Error %s \n ######', update.message)
+        elif update.state == 'TASK_FINISHED':
+            try:
+                logging.debug('######\n  Status update: Task %s FINISHED with this result %s \n ######',
+                              update.task_id.value,
+                              self._connection.hget(self._redis_key, update.task_id.value))
+            except Exception as e:
+                logging.error(str(e))
+    else:
         logging.debug('######\n Status update: \n task_id: %s \n task_state: %s \n source: %s \n '
-                          'agent_id %s \n executor_id %s \n container_status %s \n ######',
+                      'agent_id %s \n executor_id %s \n container_status %s \n ######',
                       update.task_id.value,
                       update.state,
                       update.source,
                       update.agent_id,
                       update.executor_id,
                       update.container_status)
+
 
     # get resource from offer given the name of the resource
     def getResource(self, res, name):
