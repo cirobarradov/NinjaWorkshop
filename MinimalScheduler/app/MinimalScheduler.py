@@ -53,38 +53,15 @@ class MinimalScheduler(Scheduler):
             #logging.info("resources: %s", offer.resources)
             try:
                 #get cpus and mem resources
-                cpus = self.getResource(offer.resources, 'cpus')
-                mem = self.getResource(offer.resources, 'mem')
+
 
                 #evaluate if cpus and mem suit fit with task resources
-                if cpus < self._task_cpu or mem < self._task_mem:
-                    continue
+
 
                 #create task
                 task = Dict()
-                self._id += 1
-                task_id = str(self._id)
-                task.task_id.value = task_id
-                task.agent_id.value = offer.agent_id.value
-                task.name = 'task {}'.format(task_id)
-
-                task.container.type = 'DOCKER'
-                #task.container.docker.image = DOCKER_TASK #os.getenv('DOCKER_TASK')
-                task.container.docker.image= self._docker_task
-                task.container.docker.network = 'HOST'
-                task.container.docker.force_pull_image = True
-
-                task.command.shell = True
-                #<redis_server> <redis_key> <task_id>
-                task.command.value = self._command+task_id
-                #resources
-                task.resources = [
-                    dict(name='cpus', type='SCALAR', scalar={'value': self._task_cpu}),
-                    dict(name='mem', type='SCALAR', scalar={'value': self._task_mem}),
-                ]
-                logging.info("launching task " + task_id)
-                #logging.info("task info =  %s", task)
-                driver.launchTasks(offer.id, [task], filters)
+                #launch tasks
+                #driver.launchTasks(offer.id, [task], filters)
             except Exception as e:
                 logging.info(str(e))
                 driver.declineOffer(offer.id, filters)
@@ -93,21 +70,8 @@ class MinimalScheduler(Scheduler):
     #Invoked when the status of a task has changed(e.g., a slave is lost and so the task is lost, a task finishes and an
     #executor sends a status update saying so, etc).
     def statusUpdate(self, driver, update):
-        #logging.info(update)
-        if (update.state in TERMINAL_STATES):
-            if update.state == 'TASK_FAILED':
-                logging.debug('######\n Status update: Failed %s \n ######', update.message)
-            elif update.state == 'TASK_ERROR':
-                logging.debug('######\n Status update: Error %s \n ######', update.message)
-            elif update.state == 'TASK_FINISHED':
-                try:
-                    logging.debug('######\n  Status update: Task %s FINISHED with this result %s \n ######',
-                                  update.task_id.value,
-                                  self._connection.hget(self._redis_key, update.task_id.value))
-                except Exception as e:
-                    logging.error(str(e))
-        else:
-            logging.debug('######\n Status update: \n task_id: %s \n task_state: %s \n source: %s \n '
+        #check update.state
+        logging.debug('######\n Status update: \n task_id: %s \n task_state: %s \n source: %s \n '
                           'agent_id %s \n executor_id %s \n container_status %s \n ######',
                       update.task_id.value,
                       update.state,
